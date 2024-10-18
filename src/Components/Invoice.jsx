@@ -23,11 +23,10 @@ const Invoice = () => {
   const rowsToRender = [...data, ...Array(totalRows - data.length).fill({})];
 
   return (
-    <div>
+    // <div>
       <div
         id="invoice"
         style={{
-          padding: "20px",
           width: "210mm",
           height: "297mm",
           display: "flex",
@@ -35,7 +34,6 @@ const Invoice = () => {
           alignItems: "center",
         }}
       >
-        {/* Invoice layout code remains the same */}
         <section
           style={{
             display: "flex",
@@ -43,7 +41,9 @@ const Invoice = () => {
             justifyContent: "space-between",
           }}
         >
-          <div style={{ width: "40%" }}>cknn</div>
+          <div style={{ width: "40%" }}>
+            <img src="/public/header.jpg" alt="" style={{height: '100%', width: '100%'}} />
+          </div>
           <div
             style={{
               width: "60%",
@@ -55,19 +55,18 @@ const Invoice = () => {
             <div
               style={{
                 width: "60%",
-                whiteSpace: "nowrap",
-                lineHeight: "2px",
                 textAlign: "right",
-                color: "#A8a8a8",
+                color: "#898888",
+                lineHeight: "1.25rem",
               }}
             >
-              <h4 style={{ fontWeight: 500 }}>RCCM: CD/KNM/RCM/19-B-0D291</h4>
-              <h4 style={{ fontWeight: 500 }}>Id. Nat: 01-490-N499993T</h4>
-              <h4 style={{ fontWeight: 500 }}>N{"'"}IMPOT A1915112Y</h4>
+              <h4 style={{ fontWeight: 600 }}>RCCM: CD/KNM/RCM/19-B-0D291</h4>
+              <h4 style={{ fontWeight: 600 }}>Id. Nat: 01-490-N499993T</h4>
+              <h4 style={{ fontWeight: 600 }}>N{"'"}IMPOT A1915112Y</h4>
             </div>
             <div style={{ width: "40%" }}>
               <img
-                src="../../public/logo.png"
+                src="/public/logo.jpeg"
                 style={{ width: "100%", height: "100%" }}
                 alt="logo"
               />
@@ -79,7 +78,7 @@ const Invoice = () => {
         >
           <div
             style={{
-              border: "1.5px solid black",
+              border: "2px solid black",
               padding: "4px 7rem",
               fontWeight: 500,
               fontSize: "1.25rem",
@@ -88,7 +87,9 @@ const Invoice = () => {
             FACTURE N° 126f534
           </div>
         </section>
-        <section style={{ width: "90%", textAlign: "start" }}>
+        <section
+          style={{ width: "90%", textAlign: "start", marginTop: "20px", fontSize: '1.25rem' }}
+        >
           <h4>Date: 24/10/2024</h4>
         </section>
         <section
@@ -100,15 +101,15 @@ const Invoice = () => {
               flexDirection: "column",
               justifyContent: "space-between",
               alignItems: "flex-start",
-              backgroundColor: "#cccccc",
+              backgroundColor: "#eaeaea",
               width: "50%",
-              lineHeight: "2px",
-              gap: "16px",
-              padding: "0 0 0 4px",
+              height: "90px",
+              padding: "6px",
+              fontSize: "1.1rem",
             }}
           >
-            <h4 style={{ fontWeight: 600 }}>Client: Ayan Mirza</h4>
-            <h4 style={{ fontWeight: 600 }}>Tel: +243472946592</h4>
+            <h4 style={{ fontWeight: 500 }}>Client: Ayan Mirza</h4>
+            <h4 style={{ fontWeight: 500 }}>Tel: +243472946592</h4>
           </div>
         </section>
         <table
@@ -119,36 +120,106 @@ const Invoice = () => {
           }}
         >
           <thead>
-            <tr>
-              <th style={{ border: "1px solid black", padding: "5px" }}>
+            <tr style={{}}>
+              <th
+                style={{
+                  border: "1px solid black",
+                  alignContent: "flex-end",
+                  padding: "5px 5px 0 5px",
+                  textAlign: "start",
+                }}
+              >
                 Réf Article
               </th>
-              <th style={{ border: "1px solid black", padding: "5px" }}>
+              <th
+                style={{
+                  border: "1px solid black",
+                  alignContent: "flex-end",
+                  padding: "5px 5px 0 5px",
+                }}
+              >
                 Désignation
               </th>
-              <th style={{ border: "1px solid black", padding: "5px" }}>
+              <th
+                style={{
+                  border: "1px solid black",
+                  alignContent: "flex-end",
+                  padding: "5px 5px 0 5px",
+                }}
+              >
                 Quantité
               </th>
-              <th style={{ border: "1px solid black", padding: "5px" }}>
-                Prix Unitaire
+              <th
+                style={{
+                  border: "1px solid black",
+                  alignContent: "flex-end",
+                  padding: "5px 2px 0 2px",
+                }}
+              >
+                Prix <br /> Unitaire
               </th>
-              <th style={{ border: "1px solid black", padding: "5px" }}>
-                Prix Total
+              <th
+                style={{
+                  border: "1px solid black",
+                  alignContent: "flex-end",
+                  padding: "5px 8px 0 8px",
+                }}
+              >
+                Prix <br /> Total
               </th>
             </tr>
           </thead>
           <tbody>
             {rowsToRender.map((row, index) => (
               <tr key={index} style={{ height: "30px" }}>
-                <td style={{ border: "1px solid black" }}>{row.ref || ""}</td>
-                <td style={{ border: "1px solid black" }}>
+                <td
+                  style={{
+                    border: "1px solid black",
+                    fontWeight: 600,
+                    padding: "4px",
+                  }}
+                >
+                  {row.ref || ""}
+                </td>
+                <td
+                  style={{
+                    border: "1px solid black",
+                    fontWeight: 600,
+                    padding: "4px",
+                  }}
+                >
                   {row.description || ""}
                 </td>
-                <td style={{ border: "1px solid black" }}>
+                <td
+                  style={{
+                    border: "1px solid black",
+                    fontWeight: 600,
+                    padding: "4px",
+                    textAlign: "right",
+                  }}
+                >
                   {row.quantity || ""}
                 </td>
-                <td style={{ border: "1px solid black" }}>{row.price || ""}</td>
-                <td style={{ border: "1px solid black" }}>{row.total || ""}</td>
+                <td
+                  style={{
+                    border: "1px solid black",
+                    fontWeight: 600,
+                    padding: "4px",
+                    textAlign: "center",
+                  }}
+                >
+                  {row.price || ""}
+                </td>
+                <td
+                  style={{
+                    border: "1px solid black",
+                    fontWeight: 600,
+                    padding: "4px",
+                    textAlign: "center",
+                  }}
+                >
+                  {row.total || ""}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -158,17 +229,18 @@ const Invoice = () => {
             width: "90%",
             display: "flex",
             justifyContent: "space-between",
-            marginTop: "16px",
-            fontSize: "1.25rem",
+            marginTop: "24px",
+            fontSize: "1.15rem",
           }}
         >
           <div
             style={{
               width: "45%",
-              backgroundColor: "#cccccc",
+              backgroundColor: "#eaeaea",
               display: "flex",
-              justifyContent: "space-between",
-              padding: "0 8px",
+              gap: "110px",
+              alignItems: "flex-end",
+              padding: "0 4px 0 4px",
             }}
           >
             <h4>THT:</h4>
@@ -177,24 +249,33 @@ const Invoice = () => {
           <div
             style={{
               width: "45%",
-              backgroundColor: "#cccccc",
+              backgroundColor: "#eaeaea",
               display: "flex",
               justifyContent: "space-between",
-              padding: "0 8px",
+              alignItems: "flex-end",
+              paddingLeft: "4px",
             }}
           >
             <h4>Net à payer:</h4>
-            <h4 style={{ margin: 0 }}>{totalPrice}</h4>
+            <h4
+              style={{
+                border: "1px solid black",
+                width: "30%",
+                padding: "4px",
+                background: "white",
+              }}
+            >
+              {totalPrice}
+            </h4>
           </div>
         </section>
-        <section style={{ width: "90%" }}>
+        <section style={{ width: "90%", marginTop: "24px" }}>
           <h3 style={{ fontWeight: 300 }}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod iste
-            quas odio placeat eos nulla doloribus nisi sunt quisquam
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
           </h3>
         </section>
       </div>
-    </div>
+    // </div>
   );
 };
 
