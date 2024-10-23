@@ -1,7 +1,7 @@
 import './App.css'
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import Invoice from './Components/Invoice';
+import Invoice2 from './Components/Invoice2';
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <main style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-      <Invoice />
+      <Invoice2 />
       <button onClick={generatePdf}>Download Invoice</button>
     </main>
   )

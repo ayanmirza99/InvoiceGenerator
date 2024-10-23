@@ -23,7 +23,6 @@ const Invoice = () => {
   const rowsToRender = [...data, ...Array(totalRows - data.length).fill({})];
 
   return (
-    // <div>
       <div
         id="invoice"
         style={{
@@ -120,7 +119,7 @@ const Invoice = () => {
           }}
         >
           <thead>
-            <tr style={{}}>
+            <tr>
               <th
                 style={{
                   border: "1px solid black",
@@ -275,7 +274,6 @@ const Invoice = () => {
           </h3>
         </section>
       </div>
-    // </div>
   );
 };
 
